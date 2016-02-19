@@ -5,9 +5,10 @@
 void mysort(void *base, int num, int size, int (*compare)(const void *, const void *))
 {
   char buf[size];
+  int i,j;
 
-  for (int i = 0; i < num; i++) {
-    for (int j = 1; j < num - i; j++) {
+  for (i = 0; i < num; i++) {
+    for (j = 1; j < num - i; j++) {
       if (compare(base + (j-1) * size, base + j * size) > 0) {
         // do the swap by memcpy
         memcpy(buf, base + (j-1) * size, size);
@@ -31,10 +32,10 @@ int float_cmp(const void *a, const void *b) {
 }
 
 #define ARR_SIZE 10
-int main() {
+int fp_test(void) {
   int i;
   int int_array[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-  float float_array[] = {9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0};
+  float float_array[] = {9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.0};
 
   mysort(int_array, ARR_SIZE, sizeof(int), int_cmp);
   mysort(float_array, ARR_SIZE, sizeof(float), float_cmp);
