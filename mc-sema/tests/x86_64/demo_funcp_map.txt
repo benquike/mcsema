@@ -1,0 +1,4 @@
+printf 2 C N
+memcpy 3 C N
+putchar 1 C N
+__stack_chk_fail 0 C N
